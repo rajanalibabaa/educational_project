@@ -1,11 +1,15 @@
 import React from "react";
-import { Box, Grid, Typography, Button, Container } from "@mui/material";
+import { Box, Grid, Typography, Button, Container,Card } from "@mui/material";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 // import Navbar from "../Components/Navbar";
 import studentImg from "../assets/Images/Education.png"; // add your image
+import WhatIsSec from "../Components/WhatIsSec.jsx";
+import AboutUs from "./AboutUs.jsx";
+
 
 const Home = () => {
   return (
+    <>
     <Box>
     <Box sx={{
       bgcolor: "#54ccc3",
@@ -20,11 +24,12 @@ const Home = () => {
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'space-between', py: 0 }}>
           {/* Left Content */}
           <Box sx={{ flex: 1, pr: { md: 6 }, mb: { xs: 4, md: 0 } }}>
+
             <Typography variant="h4" fontWeight="bold" gutterBottom>
-              <span style={{ color: "#f28c38" }}>Studying</span> Online is now much easier
+              <span style={{ color: "#f28c38", fontWeight: "bolder" }}>Welcome to Integrations</span> Your Path to Success in the Civil Services!
             </Typography>
             <Typography variant="body1" sx={{ mb: 3 }}>
-              TOTC is an interesting platform that will teach you in a more interactive way
+              INTEGRATIONS is an interesting platform that will teach you in a more interactive way
             </Typography>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <Button
@@ -68,7 +73,7 @@ const Home = () => {
     </Box>
 
        {/* Stats Section */}
-      <Box sx={{ bgcolor: "white", py: 6, display: 'flex', justifyContent: 'center' }}>
+      {/* <Box sx={{ bgcolor: "white", py: 6, display: 'flex', justifyContent: 'center' }}>
         <Container maxWidth="lg">
           <Grid container spacing={4} textAlign="center" justifyContent="center" gap={13}>
             <Grid item xs={6} md={2.4}>
@@ -83,18 +88,8 @@ const Home = () => {
               </Typography>
               <Typography>Total success</Typography>
             </Grid>
-            <Grid item xs={6} md={2.4}>
-              <Typography variant="h5" fontWeight="bold" color="#54ccc3">
-                35
-              </Typography>
-              <Typography>Main questions</Typography>
-            </Grid>
-            <Grid item xs={6} md={2.4}>
-              <Typography variant="h5" fontWeight="bold" color="#54ccc3">
-                26
-              </Typography>
-              <Typography>Chief experts</Typography>
-            </Grid>
+       
+            
             <Grid item xs={6} md={2.4}>
               <Typography variant="h5" fontWeight="bold" color="#54ccc3">
                 16
@@ -103,8 +98,12 @@ const Home = () => {
             </Grid>
           </Grid>
         </Container>
-      </Box>
+      </Box> */}
     </Box>
+ 
+    <WhatIsSec/>
+    <AboutUs/>
+    </>
   );
 };
 
