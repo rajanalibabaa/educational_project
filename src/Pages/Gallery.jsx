@@ -1,54 +1,223 @@
-import React from "react";
-import { Box, Grid, Card, CardMedia, Typography, Container } from "@mui/material";
-
-const images = [
-  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1612831661391-4a0f0634ec23?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1581091215365-0e3f1c8dbeec?auto=format&fit=crop&w=600&q=80",
-];
+import React from 'react';
+import { Grid, CardMedia, Typography, Box, Paper } from '@mui/material';
 
 const Gallery = () => {
-  return (
-    <Box sx={{ py: { xs: 4, md: 8 }, background: "#f8fafc" }}>
-      <Container maxWidth="lg">
-        <Typography
-          variant="h3"
-          sx={{
-            textAlign: "center",
-            mb: 6,
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: 700,
-            color: "#0f172a",
-          }}
-        >
-          Gallery
-        </Typography>
+  const galleryItems = [
+    {
+      title: 'Explore Nature',
+      description: 'Discover the beauty of the natural world',
+      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Tech Innovations',
+      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Ave Adventures',
+      image: 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Artistic Expressions',
+      image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Explore Nature',
+      description: 'Discover the beauty of the natural world',
+      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Tech Innovations',
+      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Ave Adventures',
+      image: 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Artistic Expressions',
+      image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+    {
+      title: 'Sports & Fitness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
+      
+    },
+  ];
 
-        <Grid container spacing={3}>
-          {images.map((img, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card
+  return (
+    <Box sx={{ flexGrow: 1, p: 2 }}>
+      <Box sx={{ textAlign: 'center', mb: 4 }}>
+        <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+          Photo Gallery
+        </Typography>
+        <Typography variant="body1" sx={{ color: 'gray', mt: 1 }}>
+  Explore our educational gallery of informative and inspiring images
+</Typography>
+
+      </Box>
+      <Grid container spacing={2}>
+        {galleryItems.map((item, index) => {
+          const itemsPerRow = 3;
+          const rowNumber = Math.floor(index / itemsPerRow); // 0-based row index
+          const positionInRow = index % itemsPerRow;
+
+          // Reverse pattern for every other row
+          const isFirstOfRow = rowNumber % 2 === 0
+            ? positionInRow === 0
+            : positionInRow === itemsPerRow - 1;
+
+          return (
+            <Grid
+              key={index}
+              item
+              xs={12}
+              sm={6}
+              md={isFirstOfRow ? 6 : 3} // large for first of row (or last in reversed row)
+              sx={{
+                flexGrow: 1,
+                minWidth: 0,
+                display: 'flex',
+                ...(isFirstOfRow && {
+                  flexBasis: '45vw',
+                  maxWidth: '45vw',
+                  
+                }),
+              }}
+            >
+              <Paper
+                elevation={3}
                 sx={{
-                  borderRadius: 3,
-                  overflow: "hidden",
-                  boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
-                  transition: "all 0.3s ease",
-                  "&:hover": { transform: "scale(1.03)" },
+                  position: 'relative',
+                  overflow: 'hidden',
+                  borderRadius: 2,
+                  height: 200,
+                  width: '100%',
+                  flexGrow: 1,
+                  '&:hover': { '& .overlay': { opacity: 1 } },
                 }}
               >
                 <CardMedia
                   component="img"
                   height="200"
-                  image={img}
-                  alt={`Gallery Image ${index + 1}`}
+                  image={item.image}
+                  alt={item.title}
+                  sx={{ width: '100%', objectFit: 'cover' }}
                 />
-              </Card>
+                <Box
+                  className="overlay"
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.5)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    color: 'white',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease',
+                  }}
+                >
+                  <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                    {item.title}
+                  </Typography>
+                  {item.description && (
+                    <Typography variant="body2" sx={{ mt: 1, textAlign: 'center', px: 1 }}>
+                      {item.description}
+                    </Typography>
+                  )}
+                </Box>
+              </Paper>
             </Grid>
-          ))}
-        </Grid>
-      </Container>
+          );
+        })}
+      </Grid>
     </Box>
   );
 };
