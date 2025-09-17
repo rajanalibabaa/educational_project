@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import { 
   Typography, 
   Box, 
@@ -38,6 +38,24 @@ const AboutUs = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isSmallMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
+  // Animation variants for framer-motion cards
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+  
+  // Animation for floating circles
+  const floatingAnimation = {
+    animate: {
+      y: [0, -15, 0],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
   
   const facultyMembers = [
     {
@@ -80,14 +98,109 @@ const AboutUs = () => {
       achievements: ["Senior Faculty at Multiple Institutes", "2000+ TNPSC Students Trained"]
     },
   ];
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
 
   return (
-    <Container maxWidth="false" disableGutters sx={{ px: { xs: 0, sm: 0 }, py: 0 }}>
-      {/* Hero Section - unchanged */}
+    <Container maxWidth="false" disableGutters sx={{ px: { xs: 0, sm: 0 }, py: 0, position: 'relative', overflow: 'hidden' }}>
+      {/* Animated Background Circles */}
+      <Box sx={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 0, overflow: 'hidden' }}>
+        {/* Large Orange Circle */}
+        <motion.div
+          variants={floatingAnimation}
+          animate="animate"
+          style={{
+            position: 'absolute',
+            top: '15%',
+            left: '5%',
+            width: '300px',
+            height: '300px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, rgba(255,107,53,0.15) 0%, rgba(255,142,83,0.1) 100%)',
+            zIndex: 0,
+          }}
+        />
+        
+        {/* Medium Blue Circle */}
+        <motion.div
+          variants={floatingAnimation}
+          animate="animate"
+          style={{
+            position: 'absolute',
+            top: '25%',
+            right: '10%',
+            width: '200px',
+            height: '200px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, rgba(46,134,171,0.15) 0%, rgba(76,201,240,0.1) 100%)',
+            zIndex: 0,
+          }}
+        />
+        
+        {/* Small Orange Circle */}
+        <motion.div
+          variants={floatingAnimation}
+          animate="animate"
+          style={{
+            position: 'absolute',
+            bottom: '20%',
+            right: '15%',
+            width: '120px',
+            height: '120px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(255,142,83,0.05) 100%)',
+            zIndex: 0,
+          }}
+        />
+        
+        {/* Small Blue Circle */}
+        <motion.div
+          variants={floatingAnimation}
+          animate="animate"
+          style={{
+            position: 'absolute',
+            bottom: '30%',
+            left: '10%',
+            width: '100px',
+            height: '100px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, rgba(46,134,171,0.1) 0%, rgba(76,201,240,0.05) 100%)',
+            zIndex: 0,
+          }}
+        />
+        
+        {/* Extra Small Orange Circle */}
+        <motion.div
+          variants={floatingAnimation}
+          animate="animate"
+          style={{
+            position: 'absolute',
+            top: '60%',
+            left: '20%',
+            width: '80px',
+            height: '80px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, rgba(255,107,53,0.08) 0%, rgba(255,142,83,0.04) 100%)',
+            zIndex: 0,
+          }}
+        />
+        
+        {/* Extra Small Blue Circle */}
+        <motion.div
+          variants={floatingAnimation}
+          animate="animate"
+          style={{
+            position: 'absolute',
+            top: '10%',
+            right: '25%',
+            width: '70px',
+            height: '70px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, rgba(46,134,171,0.08) 0%, rgba(76,201,240,0.04) 100%)',
+            zIndex: 0,
+          }}
+        />
+      </Box>
+
+      {/* Hero Section */}
       <Box
         sx={{
           minHeight: { xs: 320, md: 420 },
@@ -148,7 +261,7 @@ const AboutUs = () => {
               textShadow: '0 2px 8px rgba(0,0,0,0.18)',
             }}
           >
-            “We welcome you with thanks for selecting our Academy”. We have proven a distinctive curriculum providing comprehensive coaching to aspirants, inculcating cracking aptitude in civil services exams. With a proven track record of results, we strive to be your trusted guide to make your road less travel to reach your goal of becoming the future manager of this Nation.
+            "We welcome you with thanks for selecting our Academy". We have proven a distinctive curriculum providing comprehensive coaching to aspirants, inculcating cracking aptitude in civil services exams. With a proven track record of results, we strive to be your trusted guide to make your road less travel to reach your goal of becoming the future manager of this Nation.
           </Typography>
         </Box>
       </Box>
@@ -170,7 +283,7 @@ const AboutUs = () => {
         }}
       >
 
-        {/* Mission & Vision - unchanged */}
+        {/* Mission & Vision */}
         <Box
           sx={{
             display: 'flex',
@@ -579,8 +692,8 @@ const AboutUs = () => {
         
       </Box>
       
-      {/* Final CTA - unchanged */}
-      <Box sx={{ textAlign: 'center', marginTop: { xs: 4, md: 8 } }}>
+      {/* Final CTA */}
+      <Box sx={{ textAlign: 'center', marginTop: { xs: 4, md: 8 }, position: 'relative', zIndex: 3 }}>
         <Typography
           variant="h6"
           sx={{
