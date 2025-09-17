@@ -1,8 +1,9 @@
 import React from 'react';
-import { Grid, CardMedia, Typography, Box, Paper } from '@mui/material';
+import { Grid, CardMedia, Typography, Box, Paper, useTheme, useMediaQuery } from '@mui/material';
 
 const Gallery = () => {
-  const galleryItems = [
+
+   const galleryItems = [
     {
       title: 'Explore Nature',
       description: 'Discover the beauty of the natural world',
@@ -126,6 +127,8 @@ const Gallery = () => {
       
     },
   ];
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // mobile screen
 
   return (
     <Box sx={{ flexGrow: 1, p: 2 }}>
@@ -134,10 +137,10 @@ const Gallery = () => {
           Photo Gallery
         </Typography>
         <Typography variant="body1" sx={{ color: 'gray', mt: 1 }}>
-  Explore our educational gallery of informative and inspiring images
-</Typography>
-
+          Explore our educational gallery of informative and inspiring images
+        </Typography>
       </Box>
+
       <Grid container spacing={2}>
         {galleryItems.map((item, index) => {
           const itemsPerRow = 3;
@@ -149,21 +152,25 @@ const Gallery = () => {
             ? positionInRow === 0
             : positionInRow === itemsPerRow - 1;
 
+          // Column sizes
+          let xsSize = 4; // 3 images per row on mobile
+          let smSize = 6; // tablet
+          let mdSize = isFirstOfRow ? 6 : 3; // desktop
+
           return (
             <Grid
               key={index}
               item
-              xs={12}
-              sm={6}
-              md={isFirstOfRow ? 6 : 3} // large for first of row (or last in reversed row)
+              xs={xsSize}
+              sm={smSize}
+              md={mdSize}
               sx={{
                 flexGrow: 1,
                 minWidth: 0,
                 display: 'flex',
-                ...(isFirstOfRow && {
+                ...(isFirstOfRow && !isMobile && {
                   flexBasis: '45vw',
                   maxWidth: '45vw',
-                  
                 }),
               }}
             >
@@ -208,7 +215,10 @@ const Gallery = () => {
                     {item.title}
                   </Typography>
                   {item.description && (
-                    <Typography variant="body2" sx={{ mt: 1, textAlign: 'center', px: 1 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ mt: 1, textAlign: 'center', px: 1 }}
+                    >
                       {item.description}
                     </Typography>
                   )}
