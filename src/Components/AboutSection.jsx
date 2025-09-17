@@ -1,8 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
+import image from '../assets/Images/about.png'
+
 const AboutSection = () => {
   return (
+    <>
     <motion.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,6 +32,25 @@ const AboutSection = () => {
             }}>INTEGRATIONS</span> ?
           </Typography>
         </motion.div>
+
+        <Box display={"flex"} justifyContent={"space-between"}>
+<Box>  
+    ________________  About Us  ________________
+    
+     <Typography>What we are ?</Typography>
+     <Typography>We welcome you with thanks for selecting our Academy”. We have proven a distinctive curriculum providing comprehensive coaching to aspirants, inculcating cracking aptitude in civil services exams</Typography>
+     <Button variant="outlined" sx={{ borderRadius: "50px", color: "#FF6B35", borderColor: "#FF6B35"} }>Read More <Box component="span" borderRadius={"50%"} border={"1px solid #FF6B35"}>➡️</Box> </Button>
+
+     
+       </Box>
+
+
+<Box>
+    <img src={image} alt="about" style={{width:"100%"}} />
+     </Box>
+
+        </Box>
+        </>
   )
 }
 
