@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from "framer-motion";
 import { 
   Typography, 
   Box, 
@@ -72,6 +73,10 @@ const AboutUs = () => {
       avatarColor: "#2E86AB",
     },
   ];
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
 
   return (
     <Container maxWidth="false" sx={{ px: { xs: 1, sm: 3 }, py: { xs: 4, md: 8 }, }}>
@@ -156,113 +161,126 @@ const AboutUs = () => {
         </Typography>
 
         {/* Mission & Vision */}
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: { xs: 3, md: 4 }, // space between cards
+        mb: { xs: 6, md: 8 },
+      }}
+    >
+      {/* Mission Card */}
+      <motion.div
+        variants={cardVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        style={{ flex: "1 1 100%" }} // default: full width
+      >
         <Box
-  sx={{
-    display: "flex",
-    flexWrap: "wrap",
-    gap: { xs: 4, md: 4 }, // increased gap for both mobile and desktop
-    mb: { xs: 6, md: 8 },
-  }}
->
-  {/* Mission Card */}
-  <Box
-    sx={{
-      flex: { xs: "1 1 100%", md: "1 1 calc(50% - 16px)" },
-      mb: { xs: 2, md: 3 }, // extra bottom margin for mobile
-    }}
-  >
-    <Paper
-      sx={{
-        p: { xs: 2, md: 4 },
-        borderRadius: 3,
-        boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
-        background: "linear-gradient(135deg, #fff 0%, #f8f9fa 100%)",
-        height: "100%",
-        borderLeft: "4px solid #FF6B35",
-      }}
-    >
-      <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-        <TrendingUp
-          sx={{ color: "#FF6B35", fontSize: { xs: 28, md: 32 }, mr: 2 }}
-        />
-        <Typography
-          variant="h5"
           sx={{
-            fontFamily: "Montserrat, sans-serif",
-            fontWeight: 700,
-            color: "#FF6B35",
-            fontSize: { xs: "1.3rem", md: "1.5rem" },
+            flex: { xs: "1 1 100%", md: "1 1 calc(50% - 16px)" }, // responsive width
           }}
         >
-          Mission
-        </Typography>
-      </Box>
-      <Typography
-        sx={{
-          fontSize: { xs: "0.9rem", md: "1rem" },
-          lineHeight: 1.7,
-          color: "#374151",
-          pl: { xs: 0, md: 6 },
-        }}
-      >
-        Empowering future leaders through excellence in education. Our academy is
-        committed to providing comprehensive coaching, personalized guidance, and
-        a nurturing environment to aspirants, equipping them with the knowledge,
-        skills, and values necessary for success in the competitive world of civil services.
-      </Typography>
-    </Paper>
-  </Box>
+          <Paper
+            sx={{
+              p: { xs: 2, md: 4 },
+              borderRadius: 3,
+              boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
+              background: "linear-gradient(135deg, #fff 0%, #f8f9fa 100%)",
+              height: "100%",
+              borderLeft: "4px solid #FF6B35",
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+              <TrendingUp
+                sx={{ color: "#FF6B35", fontSize: { xs: 28, md: 32 }, mr: 2 }}
+              />
+              <Typography
+                variant="h5"
+                sx={{
+                  fontFamily: "Montserrat, sans-serif",
+                  fontWeight: 700,
+                  color: "#FF6B35",
+                  fontSize: { xs: "1.3rem", md: "1.5rem" },
+                }}
+              >
+                Mission
+              </Typography>
+            </Box>
+            <Typography
+              sx={{
+                fontSize: { xs: "0.9rem", md: "1rem" },
+                lineHeight: 1.7,
+                color: "#374151",
+                pl: { xs: 0, md: 6 },
+              }}
+            >
+              Empowering future leaders through excellence in education. Our academy is
+              committed to providing comprehensive coaching, personalized guidance, and
+              a nurturing environment to aspirants, equipping them with the knowledge,
+              skills, and values necessary for success in the competitive world of civil services.
+            </Typography>
+          </Paper>
+        </Box>
+      </motion.div>
 
-  {/* Vision Card */}
-  <Box
-    sx={{
-      flex: { xs: "1 1 100%", md: "1 1 calc(50% - 16px)" },
-      mb: { xs: 2, md: 3 }, 
-    }}
-  >
-    <Paper
-      sx={{
-        p: { xs: 2, md: 4 },
-        borderRadius: 3,
-        boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
-        background: "linear-gradient(135deg, #fff 0%, #f8f9fa 100%)",
-        height: "100%",
-        borderLeft: "4px solid #2E86AB",
-      }}
-    >
-      <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-        <Psychology
-          sx={{ color: "#2E86AB", fontSize: { xs: 28, md: 32 }, mr: 2 }}
-        />
-        <Typography
-          variant="h5"
+      {/* Vision Card */}
+      <motion.div
+        variants={cardVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        style={{ flex: "1 1 100%" }}
+      >
+        <Box
           sx={{
-            fontFamily: "Montserrat, sans-serif",
-            fontWeight: 700,
-            color: "#2E86AB",
-            fontSize: { xs: "1.3rem", md: "1.5rem" },
+            flex: { xs: "1 1 100%", md: "1 1 calc(50% - 16px)" },
           }}
         >
-          Vision
-        </Typography>
-      </Box>
-      <Typography
-        sx={{
-          fontSize: { xs: "0.9rem", md: "1rem" },
-          lineHeight: 1.7,
-          color: "#374151",
-          pl: { xs: 0, md: 6 },
-        }}
-      >
-        To emerge as a significant social impact organization grooming the future
-        generation of our Nation and Society. Our vision is to promote a new ecosystem
-        that enables aspirants to excel in exams and influence others with their knowledge,
-        skills, and personal ethics.
-      </Typography>
-    </Paper>
-  </Box>
-</Box>
-
+          <Paper
+            sx={{
+              p: { xs: 2, md: 4 },
+              borderRadius: 3,
+              boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
+              background: "linear-gradient(135deg, #fff 0%, #f8f9fa 100%)",
+              height: "100%",
+              borderLeft: "4px solid #2E86AB",
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+              <Psychology
+                sx={{ color: "#2E86AB", fontSize: { xs: 28, md: 32 }, mr: 2 }}
+              />
+              <Typography
+                variant="h5"
+                sx={{
+                  fontFamily: "Montserrat, sans-serif",
+                  fontWeight: 700,
+                  color: "#2E86AB",
+                  fontSize: { xs: "1.3rem", md: "1.5rem" },
+                }}
+              >
+                Vision
+              </Typography>
+            </Box>
+            <Typography
+              sx={{
+                fontSize: { xs: "0.9rem", md: "1rem" },
+                lineHeight: 1.7,
+                color: "#374151",
+                pl: { xs: 0, md: 6 },
+              }}
+            >
+              To emerge as a significant social impact organization grooming the future
+              generation of our Nation and Society. Our vision is to promote a new ecosystem
+              that enables aspirants to excel in exams and influence others with their knowledge,
+              skills, and personal ethics.
+            </Typography>
+          </Paper>
+        </Box>
+      </motion.div>
+    </Box>
 
         <Divider sx={{ my: { xs: 4, md: 6 }, borderColor: '#FF6B35', borderWidth: 1 }} />
 
@@ -288,7 +306,7 @@ const AboutUs = () => {
     gap: 4, // gap between cards
     mb: { xs: 4, md: 6 },
     justifyContent: { xs: "center", md: "flex-start" } // center on mobile, left on desktop
-    
+
   }}
 >
   {facultyMembers.map((faculty, index) => (
