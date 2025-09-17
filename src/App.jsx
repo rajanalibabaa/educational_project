@@ -8,6 +8,7 @@ import ContactUs from "../src/Pages/ContactUs"
 import Gallery from "../src/Pages/Gallery.jsx"
 import Navbar from './Components/Navbar.jsx';
 import Box from "@mui/material/Box"
+import "./App.css"
 
 const App = () => {
   return (
