@@ -5,6 +5,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import studentImg from "../assets/Images/Education.png"; // add your image
 import WhatIsSec from "../Components/WhatIsSec.jsx";
 import AboutUs from "./AboutUs.jsx";
+import AboutSection from "../Components/AboutSection.jsx";
 
 
 const Home = () => {
@@ -102,7 +103,7 @@ const Home = () => {
     </Box>
  
     <WhatIsSec/>
-    <AboutUs/>
+    <AboutSection/>
     </>
   );
 };

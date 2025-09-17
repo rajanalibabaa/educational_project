@@ -5,10 +5,10 @@ import { useInView } from 'react-intersection-observer';
 
 // Import your images (replace these with your actual images)
 import studentImg from "../assets/Images/class.jpg";
-import curriculumImg from "../assets/Images/class.jpg";
-import personalizedImg from "../assets/Images/class.jpg";
-import flexibleImg from "../assets/Images/class.jpg";
-import successImg from "../assets/Images/class.jpg";
+import curriculumImg from "../assets/Images/ciriculam.jpg";
+import personalizedImg from "../assets/Images/personal.jpg";
+import flexibleImg from "../assets/Images/per.jpg";
+import successImg from "../assets/Images/sucess.jpg";
 
 // Content data for the sections
 const contentItems = [
@@ -115,7 +115,7 @@ const InfoSection = ({ item }) => {
         '&:before': {
           content: '""',
           position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-          background: item.bgGradient,
+        //   background: item.bgGradient,
           opacity: 0.2,
           zIndex: 1,
         },
