@@ -59,7 +59,7 @@ const Navbar = () => {
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Brand Logo */}
      
-            <img src={logo} alt="Brand Logo" style={{ width: "150px", height: "auto" }} />
+            <img src={logo} alt="Brand Logo"  onClick={() => window.location.href = "/"} style={{ width: "150px", height: "auto" }} />
     
 
           {/* Desktop Links */}

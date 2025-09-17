@@ -322,7 +322,7 @@ const WhatIsSec = () => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text'
-            }}>INTEGRATIONS</span>?
+            }}>INTEGRATIONS</span> ?
           </Typography>
         </motion.div>
 

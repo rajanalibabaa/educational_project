@@ -8,6 +8,7 @@ import ContactUs from "../src/Pages/ContactUs"
 import Gallery from "../src/Pages/Gallery.jsx"
 import Navbar from './Components/Navbar.jsx';
 import Box from "@mui/material/Box"
+import Footer from './Components/footer.jsx';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>
+      <Footer/>
     </Box>
   );
 };
