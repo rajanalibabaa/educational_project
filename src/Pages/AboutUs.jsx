@@ -28,8 +28,8 @@ import {
   TrendingUp,
   Psychology
 } from '@mui/icons-material';
-import '@fontsource/roboto';
-import '@fontsource/montserrat';
+// import '@fontsource/roboto';
+// import '@fontsource/montserrat';
 
 const AboutUs = () => {
   const theme = useTheme();
