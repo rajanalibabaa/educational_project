@@ -74,14 +74,15 @@ const AboutUs = () => {
   ];
 
   return (
-    <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, md: 8 } }}>
+    <Container maxWidth="false" sx={{ px: { xs: 1, sm: 3 }, py: { xs: 4, md: 8 }, }}>
       <Box 
         sx={{ 
           fontFamily: 'Roboto, sans-serif',
           background: "linear-gradient(to bottom, #f9f9f9, #ffffff)",
           borderRadius: 4,
           overflow: "hidden",
-          position: "relative"
+          position: "relative",
+          padding:"8px"
         }}
       >
         {/* Background elements */}
@@ -92,7 +93,7 @@ const AboutUs = () => {
             right: 0,
             width: "40%",
             height: "40%",
-            background: "radial-gradient(circle, rgba(255,107,53,0.1) 0%, rgba(255,255,255,0) 70%)",
+            // background: "radial-gradient(circle, rgba(255,107,53,0.1) 0%, rgba(255,255,255,0) 70%)",
             zIndex: 0
           }}
         />
@@ -167,7 +168,7 @@ const AboutUs = () => {
   <Box
     sx={{
       flex: { xs: "1 1 100%", md: "1 1 calc(50% - 16px)" },
-      mb: { xs: 2, md: 0 }, // extra bottom margin for mobile
+      mb: { xs: 2, md: 3 }, // extra bottom margin for mobile
     }}
   >
     <Paper
@@ -216,6 +217,7 @@ const AboutUs = () => {
   <Box
     sx={{
       flex: { xs: "1 1 100%", md: "1 1 calc(50% - 16px)" },
+      mb: { xs: 2, md: 3 }, 
     }}
   >
     <Paper
@@ -286,6 +288,7 @@ const AboutUs = () => {
     gap: 4, // gap between cards
     mb: { xs: 4, md: 6 },
     justifyContent: { xs: "center", md: "flex-start" } // center on mobile, left on desktop
+    
   }}
 >
   {facultyMembers.map((faculty, index) => (
