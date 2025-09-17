@@ -33,6 +33,7 @@ import {
   MilitaryTech,
   CastForEducation
 } from '@mui/icons-material';
+import LineCompenets from "../Components/LineCompenets"
 
 const AboutUs = () => {
   const theme = useTheme();
@@ -406,10 +407,11 @@ const AboutUs = () => {
           </motion.div>
         </Box>
 
-        <Divider sx={{ my: { xs: 4, md: 6 }, borderColor: 'rgba(255,107,53,0.5)', borderWidth: 2, borderRadius: 2 }} />
-
+        
+           <LineCompenets/>
         {/* Enhanced Faculty Section */}
         <Box sx={{ py: { xs: 4, md: 8 }, px: { xs: 1, md: 2 } }}>
+
           <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 8 } }}>
             <Typography 
               variant="h3" 
@@ -417,7 +419,7 @@ const AboutUs = () => {
                 fontFamily: 'Montserrat, sans-serif',
                 fontWeight: 900,
                 fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.8rem' },
-                background: 'linear-gradient(90deg, #FF6B35, #2E86AB)',
+                background: 'linear-gradient(90deg, #172920ff, #0d394cff)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 mb: 2
@@ -446,6 +448,7 @@ const AboutUs = () => {
               justifyContent: 'center',
               alignItems: 'stretch',
               width: '100%',
+              
             }}
           >
             {facultyMembers.map((faculty, index) => (
@@ -712,8 +715,9 @@ const AboutUs = () => {
             display: 'inline-block',
             px: 4,
             py: 1.5,
+            mb:7,
             borderRadius: 3,
-            background: 'linear-gradient(90deg, #FF6B35, #FF8E53, #2E86AB)',
+            background: 'linear-gradient(90deg, #26e6a6ff, #2cc870ff, #33cf9bff)',
             color: 'white',
             fontWeight: 800,
             cursor: 'pointer',
@@ -723,7 +727,7 @@ const AboutUs = () => {
             transition: 'box-shadow 0.3s',
             '&:hover': {
               boxShadow: '0 16px 40px rgba(255,107,53,0.28)',
-              background: 'linear-gradient(90deg, #2E86AB, #FF8E53, #FF6B35)',
+              background: 'linear-gradient(90deg, #95bae7ff, #2951c1ff, #236499ff)',
             },
           }}
         >

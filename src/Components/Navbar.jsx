@@ -10,7 +10,7 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemText
+  ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
@@ -28,10 +28,7 @@ const style = {
   borderRadius: 2,
 };
 
-const Navbar = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
+const Navbar = ({ openModal, setOpenModal, drawerOpen }) => {
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
 
@@ -58,9 +55,13 @@ const Navbar = () => {
       <AppBar position="static" sx={{ bgcolor: "#54ccc3", boxShadow: 0 }}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Brand Logo */}
-     
-            <img src={logo} alt="Brand Logo" style={{ width: "150px", height: "auto" }} />
-    
+
+          <img
+            src={logo}
+            alt="Brand Logo"
+            onClick={() => (window.location.href = "/")}
+            style={{ width: "150px", height: "auto" }}
+          />
 
           {/* Desktop Links */}
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
@@ -103,11 +104,7 @@ const Navbar = () => {
       </AppBar>
 
       {/* Mobile Drawer */}
-      <Drawer
-        anchor="left"
-        open={drawerOpen}
-        onClose={toggleDrawer(false)}
-      >
+      <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
         <Box
           sx={{ width: 250 }}
           role="presentation"
@@ -116,12 +113,7 @@ const Navbar = () => {
         >
           <List>
             {navLinks.map((link) => (
-              <ListItem
-                button
-                key={link.label}
-                component={Link}
-                to={link.path}
-              >
+              <ListItem button key={link.label} component={Link} to={link.path}>
                 <ListItemText primary={link.label} />
               </ListItem>
             ))}
