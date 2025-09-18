@@ -15,20 +15,24 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import logo from "../assets/Images/logo.png";
+
+// Import your PDF file (place it in public or assets folder)
+import samplePDF from "../assets/PDF/form.pdf"; // adjust path
+
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: "80%",
+  height: "90%",
   bgcolor: "background.paper",
-  border: "2px solid #1976d2",
   boxShadow: 24,
-  p: 4,
   borderRadius: 2,
+  p: 2,
 };
 
-const Navbar = ({ openModal, setOpenModal, drawerOpen }) => {
+const Navbar = ({ openModal, setOpenModal, drawerOpen, setDrawerOpen }) => {
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
 
@@ -55,12 +59,11 @@ const Navbar = ({ openModal, setOpenModal, drawerOpen }) => {
       <AppBar position="static" sx={{ bgcolor: "#54ccc3", boxShadow: 0 }}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Brand Logo */}
-
           <img
             src={logo}
             alt="Brand Logo"
             onClick={() => (window.location.href = "/")}
-            style={{ width: "150px", height: "auto" }}
+            style={{ width: "150px", height: "auto", cursor: "pointer" }}
           />
 
           {/* Desktop Links */}
@@ -124,28 +127,34 @@ const Navbar = ({ openModal, setOpenModal, drawerOpen }) => {
         </Box>
       </Drawer>
 
-      {/* Register Modal */}
+      {/* Register Modal with PDF */}
       <Modal
         open={openModal}
         onClose={handleCloseModal}
         aria-labelledby="register-modal-title"
-        aria-describedby="register-modal-description"
+        
       >
         <Box sx={style}>
-          <Typography id="register-modal-title" variant="h6" color="primary">
-            Register
+          <Typography id="register-modal-title" variant="h6" color="primary" sx={{ mb: 0 }}>
+            Registration Form
           </Typography>
-          <Typography id="register-modal-description" sx={{ mt: 2 }}>
-            Registration form goes here.
-          </Typography>
-          <Button
-            onClick={handleCloseModal}
-            sx={{ mt: 2 }}
-            variant="outlined"
-            color="primary"
-          >
-            Close
-          </Button>
+          {/* PDF Embed */}
+          <iframe
+            src={samplePDF}
+            title="Registration Form PDF"
+            width="100%"
+            height="90%"
+            style={{ border: "none", borderRadius: "8px" }}
+          />
+          <Box sx={{ textAlign: "right", mt: 0 }}>
+            <Button
+              onClick={handleCloseModal}
+              variant="outlined"
+              color="primary"
+            >
+              Close
+            </Button>
+          </Box>
         </Box>
       </Modal>
     </>

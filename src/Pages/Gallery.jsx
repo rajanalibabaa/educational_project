@@ -7,7 +7,7 @@ export default function Gallery() {
     <Box className="gallery-root" width={600} height={500} >
       <Grid container className="gallery-grid" gap={2}>
   {/* Image 1 */}
-  <Grid item className="gallery-item" style={{ gridColumnStart: 1, gridColumnEnd: 3, gridRowStart: 1, gridRowEnd: 2 }}>
+  <Grid item className="gallery-item" style={{ gridColumnStart: 1, gridColumnEnd: 3, gridRowStart: 1, gridRowEnd: 2, }}>
     <Box className="gallery-imgbox">
       <img src="http://unsplash.it/600/400?image=940" alt="img1" className="gallery-img" />
     </Box>
