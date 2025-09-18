@@ -155,7 +155,6 @@ const Gallery = () => {
   };
 
   return (
-<<<<<<< HEAD
     <Box className="gallery-root" width={600} height={500} >
       <Grid container className="gallery-grid" gap={2}>
   {/* Image 1 */}
@@ -200,113 +199,6 @@ const Gallery = () => {
       <img src="http://unsplash.it/620/340?image=623" alt="img7" className="gallery-img" />
     </Box>
   </Grid>
-=======
-    <Box sx={{ flexGrow: 1, p: 2 }}>
-      <Box sx={{ textAlign: "center", mb: 4 }}>
-        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-          Photo Gallery
-        </Typography>
-        <Typography variant="body1" sx={{ color: "gray", mt: 1 }}>
-          Explore our educational gallery of informative and inspiring images
-        </Typography>
-      </Box>
-
-      <Grid container spacing={2}>
-        {galleryItems.map((item, index) => {
-          const itemsPerRow = 3;
-          const rowNumber = Math.floor(index / itemsPerRow); // 0-based row index
-          const positionInRow = index % itemsPerRow;
-
-          // Reverse pattern for every other row
-          const isFirstOfRow =
-            rowNumber % 2 === 0
-              ? positionInRow === 0
-              : positionInRow === itemsPerRow - 1;
-
-          let mdSize = isFirstOfRow ? 6 : 3; // desktop
-          
-
-          return (
-            <Grid
-              key={index}
-              item
-              xs={4} // 3 per row on mobile
-              sm={6}
-              md={mdSize}
-              sx={{
-                flexGrow: 1,
-                minWidth: 0,
-                display: "flex",
-                ...(isFirstOfRow &&
-                  !isMobile && {
-                    flexBasis: "45vw",
-                    maxWidth: "45vw",
-                  }),
-              }}
-            >
-              <Paper
-              onClick={()=>{handleImageOnclick(item.image)}}
-                elevation={3}
-                sx={{
-                  position: "relative",
-                  overflow: "hidden",
-                  borderRadius: 2,
-                  height: {
-                    xs: 120, 
-                    sm: 180, 
-                    md: 200, 
-                  },
-                  width: {
-                    xs: 120, // mobile
-                    sm: 200, // tablet
-                    md: "100%", // desktop
-                  },
-                  flexGrow: 1,
-                  "&:hover": { "& .overlay": { opacity: 1 } },
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={item.image}
-                  alt={item.title}
-                  sx={{ width: "100%", objectFit: "cover" }}
-                />
-                <Box
-                  className="overlay"
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    backgroundColor: "rgba(0,0,0,0.5)",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    color: "white",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
-                  }}
-                >
-                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                    {item.title}
-                  </Typography>
-                  {item.description && (
-                    <Typography
-                      variant="body2"
-                      sx={{ mt: 1, textAlign: "center", px: 1 }}
-                    >
-                      {item.description}
-                    </Typography>
-                  )}
-                </Box>
-              </Paper>
-            </Grid>
-          );
-        })}
->>>>>>> 9cf0416cc2e72ae007aa3ca022061800a9c0c1ae
       </Grid>
        <Dialog open={open} onClose={handleClose} maxWidth="md">
         <IconButton
