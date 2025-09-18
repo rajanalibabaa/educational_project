@@ -6,7 +6,7 @@ import Home from "../src/Pages/Home.jsx"
 import AboutUs from "../src/Pages/AboutUs"
 import Courses from "../src/Pages/Courses"
 import ContactUs from "../src/Pages/ContactUs"
-import Gallery from "../src/Pages/Gallery.jsx"
+import Gallery from "./Pages/Gallery.jsx"
 import Navbar from './Components/Navbar.jsx';
 import Box from "@mui/material/Box"
 import Footer from './Components/footer.jsx';
