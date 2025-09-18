@@ -1,142 +1,166 @@
-import React from 'react';
-import { Grid, CardMedia, Typography, Box, Paper, useTheme, useMediaQuery } from '@mui/material';
+import React, { useState } from "react";
+import {
+  Grid,
+  CardMedia,
+  Typography,
+  Box,
+  Paper,
+  useTheme,
+  useMediaQuery,
+  Dialog,
+  DialogContent,
+  IconButton,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+
 
 const Gallery = () => {
+  const [open, setOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-   const galleryItems = [
+  const galleryItems = [
     {
-      title: 'Explore Nature',
-      description: 'Discover the beauty of the natural world',
-      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Explore Nature",
+      description: "Discover the beauty of the natural world",
+      image:
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Tech Innovations',
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Tech Innovations",
+      image:
+        "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Ave Adventures',
-      image: 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Ave Adventures",
+      image:
+        "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Artistic Expressions',
-      image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Artistic Expressions",
+      image:
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Explore Nature',
-      description: 'Discover the beauty of the natural world',
-      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Explore Nature",
+      description: "Discover the beauty of the natural world",
+      image:
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Tech Innovations',
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Tech Innovations",
+      image:
+        "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Ave Adventures',
-      image: 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Ave Adventures",
+      image:
+        "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Artistic Expressions',
-      image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Artistic Expressions",
+      image:
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
     {
-      title: 'Sports & Fitness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384',
-      
+      title: "Sports & Fitness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=384",
     },
   ];
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // mobile screen
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // mobile screen
+ const handleImageOnclick = (image) => {
+    setSelectedImage(image);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedImage(null);
+  };
 
   return (
     <Box sx={{ flexGrow: 1, p: 2 }}>
-      <Box sx={{ textAlign: 'center', mb: 4 }}>
-        <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+      <Box sx={{ textAlign: "center", mb: 4 }}>
+        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
           Photo Gallery
         </Typography>
-        <Typography variant="body1" sx={{ color: 'gray', mt: 1 }}>
+        <Typography variant="body1" sx={{ color: "gray", mt: 1 }}>
           Explore our educational gallery of informative and inspiring images
         </Typography>
       </Box>
@@ -148,42 +172,51 @@ const Gallery = () => {
           const positionInRow = index % itemsPerRow;
 
           // Reverse pattern for every other row
-          const isFirstOfRow = rowNumber % 2 === 0
-            ? positionInRow === 0
-            : positionInRow === itemsPerRow - 1;
+          const isFirstOfRow =
+            rowNumber % 2 === 0
+              ? positionInRow === 0
+              : positionInRow === itemsPerRow - 1;
 
-          // Column sizes
-          let xsSize = 4; // 3 images per row on mobile
-          let smSize = 6; // tablet
           let mdSize = isFirstOfRow ? 6 : 3; // desktop
+          
 
           return (
             <Grid
               key={index}
               item
-              xs={xsSize}
-              sm={smSize}
+              xs={4} // 3 per row on mobile
+              sm={6}
               md={mdSize}
               sx={{
                 flexGrow: 1,
                 minWidth: 0,
-                display: 'flex',
-                ...(isFirstOfRow && !isMobile && {
-                  flexBasis: '45vw',
-                  maxWidth: '45vw',
-                }),
+                display: "flex",
+                ...(isFirstOfRow &&
+                  !isMobile && {
+                    flexBasis: "45vw",
+                    maxWidth: "45vw",
+                  }),
               }}
             >
               <Paper
+              onClick={()=>{handleImageOnclick(item.image)}}
                 elevation={3}
                 sx={{
-                  position: 'relative',
-                  overflow: 'hidden',
+                  position: "relative",
+                  overflow: "hidden",
                   borderRadius: 2,
-                  height: 200,
-                  width: '100%',
+                  height: {
+                    xs: 120, 
+                    sm: 180, 
+                    md: 200, 
+                  },
+                  width: {
+                    xs: 120, // mobile
+                    sm: 200, // tablet
+                    md: "100%", // desktop
+                  },
                   flexGrow: 1,
-                  '&:hover': { '& .overlay': { opacity: 1 } },
+                  "&:hover": { "& .overlay": { opacity: 1 } },
                 }}
               >
                 <CardMedia
@@ -191,33 +224,33 @@ const Gallery = () => {
                   height="200"
                   image={item.image}
                   alt={item.title}
-                  sx={{ width: '100%', objectFit: 'cover' }}
+                  sx={{ width: "100%", objectFit: "cover" }}
                 />
                 <Box
                   className="overlay"
                   sx={{
-                    position: 'absolute',
+                    position: "absolute",
                     top: 0,
                     left: 0,
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.5)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    color: 'white',
+                    width: "100%",
+                    height: "100%",
+                    backgroundColor: "rgba(0,0,0,0.5)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "white",
                     opacity: 0,
-                    transition: 'opacity 0.3s ease',
+                    transition: "opacity 0.3s ease",
                   }}
                 >
-                  <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                     {item.title}
                   </Typography>
                   {item.description && (
                     <Typography
                       variant="body2"
-                      sx={{ mt: 1, textAlign: 'center', px: 1 }}
+                      sx={{ mt: 1, textAlign: "center", px: 1 }}
                     >
                       {item.description}
                     </Typography>
@@ -228,6 +261,29 @@ const Gallery = () => {
           );
         })}
       </Grid>
+       <Dialog open={open} onClose={handleClose} maxWidth="md">
+        <IconButton
+          onClick={handleClose}
+          sx={{
+            position: "absolute",
+            top: 10,
+            right: 10,
+            color: "red",
+            zIndex: 10,
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+        <DialogContent sx={{ p: 0 }}>
+          {selectedImage && (
+            <img
+              src={selectedImage}
+              alt="Selected"
+              style={{ width: "100%", height: "auto" }}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </Box>
   );
 };
