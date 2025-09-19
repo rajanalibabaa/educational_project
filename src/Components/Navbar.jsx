@@ -51,6 +51,7 @@ const Navbar = () => {
     { label: "Gallery", path: "/gallery" },
     { label: "About Us", path: "/about" },
     { label: "Contact Us", path: "/contact" },
+    { label: "Register", path: "/registration" },
   ];
 
   return (
@@ -74,7 +75,7 @@ const Navbar = () => {
                 {link.label}
               </Button>
             ))}
-            <Button
+            {/* <Button
               variant="contained"
               sx={{
                 bgcolor: "white",
@@ -89,7 +90,7 @@ const Navbar = () => {
               onClick={handleOpenModal}
             >
               Register
-            </Button>
+            </Button> */}
           </Box>
 
           {/* Mobile Menu Button */}
@@ -125,15 +126,15 @@ const Navbar = () => {
                 <ListItemText primary={link.label} />
               </ListItem>
             ))}
-            <ListItem button onClick={handleOpenModal}>
+            {/* <ListItem button onClick={handleOpenModal}>
               <ListItemText primary="Register" />
-            </ListItem>
+            </ListItem> */}
           </List>
         </Box>
       </Drawer>
 
       {/* Register Modal */}
-      <Modal
+      {/* <Modal
         open={openModal}
         onClose={handleCloseModal}
         aria-labelledby="register-modal-title"
@@ -155,7 +156,7 @@ const Navbar = () => {
             Close
           </Button>
         </Box>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

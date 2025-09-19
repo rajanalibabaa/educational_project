@@ -9,6 +9,7 @@ import Gallery from "../src/Pages/Gallery.jsx"
 import Navbar from './Components/Navbar.jsx';
 import Box from "@mui/material/Box"
 import Footer from './Components/footer.jsx';
+import Register from './Pages/Register.jsx';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
          <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/registration" element={<Register />} />
       </Routes>
       <Footer/>
     </Box>
