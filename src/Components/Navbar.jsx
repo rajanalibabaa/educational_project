@@ -53,6 +53,7 @@ const Navbar = ({ openModal, setOpenModal, drawerOpen, setDrawerOpen }) => {
     { label: "News", path: "/news" },
     { label: "About Us", path: "/about" },
     { label: "Contact Us", path: "/contact" },
+    { label: "Register", path: "/registration" },
   ];
 
   return (
@@ -79,7 +80,7 @@ const Navbar = ({ openModal, setOpenModal, drawerOpen, setDrawerOpen }) => {
                 {link.label}
               </Button>
             ))}
-            <Button
+            {/* <Button
               variant="contained"
               sx={{
                 bgcolor: "white",
@@ -94,7 +95,7 @@ const Navbar = ({ openModal, setOpenModal, drawerOpen, setDrawerOpen }) => {
               onClick={handleOpenModal}
             >
               Register
-            </Button>
+            </Button> */}
           </Box>
 
           {/* Mobile Menu Button */}
@@ -121,15 +122,15 @@ const Navbar = ({ openModal, setOpenModal, drawerOpen, setDrawerOpen }) => {
                 <ListItemText primary={link.label} />
               </ListItem>
             ))}
-            <ListItem button onClick={handleOpenModal}>
+            {/* <ListItem button onClick={handleOpenModal}>
               <ListItemText primary="Register" />
-            </ListItem>
+            </ListItem> */}
           </List>
         </Box>
       </Drawer>
 
-      {/* Register Modal with PDF */}
-      <Modal
+      {/* Register Modal */}
+      {/* <Modal
         open={openModal}
         onClose={handleCloseModal}
         aria-labelledby="register-modal-title"
@@ -143,25 +144,19 @@ const Navbar = ({ openModal, setOpenModal, drawerOpen, setDrawerOpen }) => {
           >
             Registration Form
           </Typography>
-          {/* PDF Embed */}
-          <iframe
-            src={samplePDF}
-            title="Registration Form PDF"
-            width="100%"
-            height="90%"
-            style={{ border: "none", borderRadius: "8px" }}
-          />
-          <Box sx={{ textAlign: "right", mt: 0 }}>
-            <Button
-              onClick={handleCloseModal}
-              variant="outlined"
-              color="primary"
-            >
-              Close
-            </Button>
-          </Box>
+          <Typography id="register-modal-description" sx={{ mt: 2 }}>
+            Registration form goes here.
+          </Typography>
+          <Button
+            onClick={handleCloseModal}
+            sx={{ mt: 2 }}
+            variant="outlined"
+            color="primary"
+          >
+            Close
+          </Button>
         </Box>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

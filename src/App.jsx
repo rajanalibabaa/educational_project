@@ -11,6 +11,7 @@ import Navbar from './Components/Navbar.jsx';
 import Box from "@mui/material/Box"
 import Footer from './Components/footer.jsx';
 import News from './Pages/News.jsx';
+import Register from './Pages/Register.jsx';
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/news" element={<News/>} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/registration" element={<Register />} />
       </Routes>
       <Footer/>
     </Box>
