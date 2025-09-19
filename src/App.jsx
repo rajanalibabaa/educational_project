@@ -10,6 +10,7 @@ import Gallery from "./Pages/Gallery.jsx"
 import Navbar from './Components/Navbar.jsx';
 import Box from "@mui/material/Box"
 import Footer from './Components/footer.jsx';
+import News from './Pages/News.jsx';
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/" element={<Home setOpenModal={setOpenModal} />} />
         <Route path="/courses" element={<Courses />} />
          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/news" element={<News/>} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>

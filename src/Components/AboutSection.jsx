@@ -257,8 +257,6 @@ const ModernAboutUs = () => {
     }}
   />
 </Box>
-
-
       </Box>
     </>
   );

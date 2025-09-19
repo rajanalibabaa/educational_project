@@ -50,6 +50,7 @@ const Navbar = ({ openModal, setOpenModal, drawerOpen, setDrawerOpen }) => {
     { label: "Home", path: "/" },
     { label: "Courses", path: "/courses" },
     { label: "Gallery", path: "/gallery" },
+    { label: "News", path: "/news" },
     { label: "About Us", path: "/about" },
     { label: "Contact Us", path: "/contact" },
   ];
@@ -132,10 +133,14 @@ const Navbar = ({ openModal, setOpenModal, drawerOpen, setDrawerOpen }) => {
         open={openModal}
         onClose={handleCloseModal}
         aria-labelledby="register-modal-title"
-        
       >
         <Box sx={style}>
-          <Typography id="register-modal-title" variant="h6" color="primary" sx={{ mb: 0 }}>
+          <Typography
+            id="register-modal-title"
+            variant="h6"
+            color="primary"
+            sx={{ mb: 0 }}
+          >
             Registration Form
           </Typography>
           {/* PDF Embed */}
