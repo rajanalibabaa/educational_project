@@ -77,7 +77,7 @@ const Home = ({ setOpenModal }) => {
                       px: 3,
                       borderRadius: "50px",
                     }}
-                    onClick={() => setOpenModal(true)} // ✅ Open Navbar modal
+                    onClick={() => navigate("/registration")} // ✅ Open Navbar modal
                   >
                     REGISTER
                   </Button>

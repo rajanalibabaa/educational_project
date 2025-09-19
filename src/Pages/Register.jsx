@@ -110,6 +110,51 @@ const Register = () => {
       },
         body:  JSON.stringify(formData)
       });
+      setFormData({
+        rollNo: '',
+    name: '',
+    fatherName: '',
+    dob: '',
+    placeOfBirth: '',
+    community: '',
+    presentAddress: '',
+    contactNumber: '',
+    email: '',
+    permanentAddress: '',
+    qualifications: {
+      tenth: { institution: '', subject: '', year: '', marks: '' },
+      twelfth: { institution: '', subject: '', year: '', marks: '' },
+      degree: { institution: '', subject: '', year: '', marks: '' },
+      master: { institution: '', subject: '', year: '', marks: '' },
+      others: { institution: '', subject: '', year: '', marks: '' }
+    },
+    courseOpted: '',
+    preliminary: {
+      gs: false,
+      csat: false,
+      gsTestBatch: false,
+      csatTestBatch: false
+    },
+    main: {
+      gs: false,
+      optional: false,
+      gsTestBatch: false,
+      optionalTestBatch: false
+    },
+    optionalSubject: '',
+    otherSubject: '',
+    interview: {
+      coaching: false,
+      mockInterview: false,
+      upsc: false,
+      tnpsc: false
+    },
+    howKnow: '',
+    declaration: false,
+    signature: null,
+    place: '',
+    signatureDate: ''
+      })
   };
 
   return (
