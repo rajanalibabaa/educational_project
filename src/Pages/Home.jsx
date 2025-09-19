@@ -2,6 +2,9 @@ import React, { Suspense, lazy } from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { motion } from "framer-motion";
+import CollectionsIcon from "@mui/icons-material/Collections";
+
+import { useNavigate } from "react-router-dom";
 
 // ✅ Lazy load heavy components
 const WhatIsSec = lazy(() => import("../Components/WhatIsSec.jsx"));
@@ -22,7 +25,8 @@ const fadeRight = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
-const Home = () => {
+const Home = ({ setOpenModal }) => {
+  const navigate = useNavigate();
   return (
     <>
       <Box>
@@ -42,7 +46,7 @@ const Home = () => {
                 flexDirection: { xs: "column", md: "row" },
                 alignItems: "center",
                 justifyContent: "space-between",
-                py: 4,
+                py: 2,
               }}
             >
               {/* Left Content */}
@@ -67,15 +71,17 @@ const Home = () => {
                     variant="contained"
                     sx={{
                       bgcolor: "white",
-                      color: "#54ccc3",
+                      color: "#d38612ff",
                       fontWeight: "bold",
                       textTransform: "none",
                       px: 3,
                       borderRadius: "50px",
                     }}
+                    onClick={() => navigate("/registration")} // ✅ Open Navbar modal
                   >
-                    Join for free
+                    REGISTER
                   </Button>
+
                   <Button
                     variant="text"
                     sx={{
@@ -83,8 +89,9 @@ const Home = () => {
                       textTransform: "none",
                       fontWeight: "bold",
                     }}
+                    onClick={() => navigate("/gallery")}
                   >
-                    <PlayArrowIcon /> Watch how it works
+                    <CollectionsIcon /> Go to Gallery
                   </Button>
                 </Box>
               </motion.div>
@@ -112,7 +119,9 @@ const Home = () => {
       </Box>
 
       {/* ✅ Suspense for lazy-loaded components */}
-      <Suspense fallback={<div style={{ textAlign: "center" }}>Loading...</div>}>
+      <Suspense
+        fallback={<div style={{ textAlign: "center" }}>Loading...</div>}
+      >
         <LineCompenets />
         <WhatIsSec />
         <LineCompenets />

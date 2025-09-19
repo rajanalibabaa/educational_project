@@ -106,7 +106,9 @@ const Courses = () => {
       }}
     >
       <Star sx={{ color, fontSize: 16 }} />
-      <Typography sx={{ color: "#374151", fontSize: "0.85rem", fontWeight: 500 }}>
+      <Typography
+        sx={{ color: "#374151", fontSize: "0.85rem", fontWeight: 500 }}
+      >
         {text}
       </Typography>
     </Paper>
@@ -264,18 +266,21 @@ const Courses = () => {
     >
       <Container maxWidth="lg">
         <Box textAlign="center" mb={4}>
-          <Chip
-            label="Our Programs"
+          <Typography
+            variant="h3"
             sx={{
-              bgcolor: "#3b82f6",
-              color: "white",
-              px: 1.8,
-              py: 0.7,
-              mb: 1.5,
-              fontSize: "0.85rem",
-              fontWeight: 600,
+              fontFamily: "Montserrat, sans-serif",
+              fontWeight: 900,
+              fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.8rem" },
+              background: "linear-gradient(90deg, #a27e24ff, #dea322ff)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              mb: 2,
             }}
-          />
+          >
+            Our Courses
+          </Typography>
+
           <Typography
             variant="h4"
             sx={{
@@ -286,7 +291,8 @@ const Courses = () => {
               mb: 1,
             }}
           >
-            Comprehensive <span style={{ color: "#3b82f6" }}>Exam Preparation</span>
+            Comprehensive{" "}
+            <span style={{ color: "#3b82f6" }}>Exam Preparation</span>
           </Typography>
           <Typography
             sx={{
@@ -305,7 +311,7 @@ const Courses = () => {
           <Grid item xs={12} md={6}>
             {renderCard(courses[0])}
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} width={1200}>
             {renderCard(courses[1])}
           </Grid>
         </Grid>
@@ -335,7 +341,9 @@ const Courses = () => {
         </Box>
 
         <Box textAlign="center" mt={4}>
-          <Typography sx={{ color: "#64748b", fontStyle: "italic", fontSize: "0.9rem" }}>
+          <Typography
+            sx={{ color: "#64748b", fontStyle: "italic", fontSize: "0.9rem" }}
+          >
             All courses include study materials, mock tests, and expert guidance
           </Typography>
         </Box>
