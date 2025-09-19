@@ -1,5 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
 import { 
   Typography, 
   Box, 
@@ -36,6 +36,9 @@ import {
 import LineCompenets from "../Components/LineCompenets"
 
 const AboutUs = () => {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isSmallMobile = useMediaQuery(theme.breakpoints.down('sm'));
