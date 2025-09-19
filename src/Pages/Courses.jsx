@@ -20,8 +20,11 @@ import {
   Star,
   ArrowForward,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
+
+  const navigate = useNavigate()
   const courses = [
     {
       title: "Civil Services Exam",
@@ -235,8 +238,10 @@ const Courses = () => {
             display: "flex",
             justifyContent: "flex-end",
           }}
+          
         >
           <Chip
+          onClick = {() => {navigate("/registration")}}
             label="Enroll Now"
             sx={{
               bgcolor: course.color,
@@ -257,7 +262,7 @@ const Courses = () => {
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%)",
+        background: "linear-gradient(135deg, #e1dfe1ff 0%, #eef2f7 100%)",
         minHeight: "100vh",
         py: { xs: 3, md: 6 },
         px: { xs: 2, md: 4 },

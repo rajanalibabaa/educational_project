@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 
 const Register = () => {
+
   const [formData, setFormData] = useState({
     rollNo: '',
     name: '',
