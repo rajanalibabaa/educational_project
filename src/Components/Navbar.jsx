@@ -27,7 +27,6 @@ const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const handleOpenModal = () => navigate("/registration");
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -38,6 +37,11 @@ const Navbar = () => {
     }
     setDrawerOpen(open);
   };
+  
+    const handleOpenModal = () => {
+    navigate("/registration")
+  };
+
 
   const navLinks = [
     { label: "Home", path: "/" },
@@ -57,7 +61,7 @@ const Navbar = () => {
           background: "linear-gradient(135deg, #54ccc3 0%, #38b2ac 100%)"
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between", py: 1 }}>
+        <Toolbar sx={{ justifyContent: "space-between"}}>
           {/* Brand Logo */}
           <img 
             src={logo} 
@@ -102,7 +106,6 @@ const Navbar = () => {
                 borderRadius: "50px",
                 ml: 2,
                 px: 3,
-                py: 1,
                 boxShadow: "0 4px 8px rgba(242, 140, 56, 0.3)",
                 textTransform: "none",
                 fontWeight: "bold",
@@ -236,9 +239,12 @@ const Navbar = () => {
                     boxShadow: "0 6px 12px rgba(242, 140, 56, 0.4)",
                   },
                 }}
-                onClick={() => {
-                  navigate("/registration")
-                }}
+                   onClick={() => {
+      setDrawerOpen(false); // Close the drawer directly
+      handleOpenModal(); // Then navigate to registration
+    }}
+                    
+            
               >
                 Register Now
               </Button>
