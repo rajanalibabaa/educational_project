@@ -158,6 +158,7 @@ const Register = () => {
       })
   };
 
+  
   return (
     <div className="registration-form-container"
       style={{marginTop : "1rem",marginBottom:'1rem'}}
